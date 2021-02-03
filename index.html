@@ -12,12 +12,54 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+      <h2>Code Journal</h2>
   </header>
   <main>
+    <div class="form-container">
     <div data-view="edit-profile"></div>
+    <h1>Edit Profile</h1>
+      <form action="" method="get">
+        <div class="form-row">
+          <div class="form-column-1">
+            <img class="default-img" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
+          </div>
+          <div class="form-column-2">
+            <div class="form-group">
+              <label for="url">Avatar URL</label>
+              <input type="url" name="url" id="url" pattern="https://.*" size="50" required>
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" size="50" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" size="50" required>
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" size="50" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-column-3">
+            <div class="form-group">
+              <label for="bio">Bio</label>
+              <textarea id="bio" name="bio" rows="10" cols="98" required></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="SAVE">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

@@ -1,0 +1,61 @@
+body {
+  font-family: 'Syne', sans-serif;
+  background-color: rgb(230, 239, 237);
+}
+
+header {
+  background-color: rgb(160, 193, 185);
+  padding: 0.1em;
+}
+
+h2,
+.form-container {
+  font-weight: normal;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.default-img {
+  width: 90%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.form-group input {
+  height: 2.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+textarea {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.form-group > input:last-child {
+  text-align: right;
+}
+
+@media screen and (min-width: 800px) {
+  .form-row {
+    display: flex;
+  }
+
+  .form-column-1 {
+    width: 55%;
+  }
+
+  .form-column-2 {
+    width: 45%;
+    line-height: 2em;
+  }
+
+  .form-group {
+    display: block;
+  }
+
+  .form-group > label {
+    display: block;
+  }
+}
