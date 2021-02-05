@@ -19,11 +19,10 @@ h2 {
 .default-img {
   width: 100%;
   border-radius: 0.5em;
-  margin-bottom: 1.6em;
 }
 
 .form-group {
-  margin-bottom: 1.7em;
+  margin-bottom: 1.6em;
 }
 
 input,
