@@ -20,40 +20,50 @@
       <h2>Code Journal</h2>
   </header>
   <main>
-    <div class="form-container">
+    <div class="container">
     <div data-view="edit-profile"></div>
-    <h1>Edit Profile</h1>
+    <h1>EDIT PROFILE</h1>
       <form action="" method="get">
-        <div class="form-row">
-          <div class="form-column-1">
+        <div class="row">
+          <div class="column-half">
             <img class="default-img" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
           </div>
-          <div class="form-column-2">
+          <div class="column-half">
             <div class="form-group">
-              <label for="url">Avatar URL</label>
-              <input type="url" name="url" id="url" pattern="https://.*" size="50" required>
+              <label for="avatarUrl">Avatar URL</label>
+              <div>
+                <input type="url" name="avatarUrl" id="avatarUrl" pattern="https://.*" required>
+              </div>
             </div>
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" id="username" name="username" size="50" required>
+              <div>
+                <input type="text" id="username" name="username" required>
+              </div>
             </div>
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" size="50" required>
+              <label for="fullName">Full Name</label>
+              <div>
+                <input type="text" id="fullName" name="fullName" required>
+              </div>
             </div>
             <div class="form-group">
               <label for="location">Location</label>
-              <input type="text" id="location" name="location" size="50" required>
+              <div>
+               <input type="text" id="location" name="location" required>
+              </div>
             </div>
-          </div>
         </div>
-        <div class="form-row">
-          <div class="form-column-3">
+      </div>
+      <div class="row">
+        <div class="column-full">
             <div class="form-group">
               <label for="bio">Bio</label>
-              <textarea id="bio" name="bio" rows="10" cols="98" required></textarea>
+              <div>
+                <textarea id="bio" name="bio" required></textarea>
+              </div>
             </div>
-            <div class="form-group">
+            <div class="submit">
               <input type="submit" value="SAVE">
             </div>
           </div>
