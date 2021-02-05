@@ -25,3 +25,12 @@ $profileForm.addEventListener('submit', function (event) {
   $profileForm.reset();
   $defaultImg.src = 'images/placeholder-image-square.jpg';
 });
+
+var previousdataJSON = localStorage.getItem('javascript-local-storage');
+
+data = JSON.parse(previousdataJSON);
+
+window.addEventListener('beforeunload', function (event) {
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('javascript-local-storage', dataJSON);
+});
