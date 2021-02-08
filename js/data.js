@@ -88,6 +88,12 @@ function viewSwap(dataView) {
     $editProfile.className = '';
     $profile.className = 'hidden';
     data.view = 'edit-profile';
+    $profileForm.elements.username.value = data.profile.username;
+    $profileForm.elements.fullName.value = data.profile.fullName;
+    $profileForm.elements.location.value = data.profile.location;
+    $profileForm.elements.avatarUrl.value = data.profile.avatarUrl;
+    $editProfile.querySelector('.default-img').src = data.profile.avatarUrl;
+    $profileForm.elements.bio.value = data.profile.bio;
   }
   if (dataView === 'profile') {
     $editProfile.className = 'hidden';
