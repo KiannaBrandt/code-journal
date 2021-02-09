@@ -118,3 +118,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
     viewSwap('profile');
   }
 });
+
+document.addEventListener('click', function (event) {
+  if (event.target && event.target.nodeName === 'A') {
+    viewSwap('edit-profile');
+  }
+});
