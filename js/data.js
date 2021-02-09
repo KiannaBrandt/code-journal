@@ -80,6 +80,14 @@ function renderProfile() {
   var $pBio = document.createElement('p');
   $pBio.textContent = data.profile.bio;
   $divViewBio.appendChild($pBio);
+  var $divLink = document.createElement('div');
+  $divLink.setAttribute('class', 'edit-link');
+  $divColumnHalf2.appendChild($divLink);
+  var $link = document.createElement('a');
+  $link.setAttribute('href', '#');
+  $link.setAttribute('data-view', 'edit-profile');
+  $link.textContent = 'edit';
+  $divLink.appendChild($link);
   return $divContainer;
 }
 

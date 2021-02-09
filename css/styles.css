@@ -46,15 +46,16 @@ textarea {
   text-align: right;
 }
 
-input[type="submit"] {
+input[type="submit"],
+a {
   width: 6em;
   font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
   font-weight: bold;
   color: white;
   background-color: rgb(160, 193, 185);
   border: none;
   border-radius: 0.5em;
-  margin: 0;
 }
 
 h3 {
@@ -69,4 +70,13 @@ i {
 
 p {
   margin: 1em;
+}
+
+a {
+  text-decoration: none;
+  padding: 0.7em;
+}
+
+.edit-link {
+  padding-top: 1.5em;
 }
