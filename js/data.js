@@ -16,6 +16,7 @@ var $profileForm = document.querySelector('#profile-form');
 var $editProfile = document.querySelector('#edit-profile');
 var $profile = document.querySelector('#profile');
 var $defaultImg = document.querySelector('.default-img');
+var $entriesLink = document.querySelector('#entries-link');
 
 $profileForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -88,7 +89,7 @@ function renderProfile() {
   var $link = document.createElement('a');
   $link.setAttribute('href', '#');
   $link.setAttribute('data-view', 'edit-profile');
-  $link.textContent = 'edit';
+  $link.textContent = 'Edit';
   $divLink.appendChild($link);
   return $divContainer;
 }
@@ -110,6 +111,7 @@ function viewSwap(dataView) {
   if (dataView === 'profile') {
     $editProfile.className = 'hidden';
     $profile.className = '';
+    $entriesLink.className = '';
     data.view = 'profile';
     $profile.removeChild($profile.childNodes[0]);
     $profile.appendChild(renderProfile());
@@ -126,10 +128,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 document.addEventListener('click', function (event) {
   if (event.target && event.target.nodeName === 'A') {
-    if (event.target.textContent === 'edit') {
+    if (event.target.textContent === 'Edit') {
       viewSwap('edit-profile');
     }
-    if ((event.target.textContent === 'profile') && (data.profile.username !== '')) {
+    if ((event.target.textContent === 'Profile') && (data.profile.username !== '')) {
       viewSwap('profile');
     }
   }
