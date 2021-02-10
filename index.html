@@ -81,7 +81,46 @@
     </div>
 
     <div data-view="entries" id="entries">
+    </div>
 
+    <div data-view="create-entries" id="create-entries">
+      <div class="container">
+        <h1>New Entries</h1>
+        <form action="" method="get" id="entries-form">
+          <div class="row">
+            <div class="column-half">
+              <img class="default-img" src="images/placeholder-image-square.jpg" alt="placeholder-image-square">
+            </div>
+            <div class="column-half">
+              <div class="form-group">
+                <label for="imgUrl">Image URL</label>
+                <div>
+                  <input type="url" name="imgUrl" id="imgUrl" pattern="https://.*" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <div>
+                  <input type="text" id="tile" name="title" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="form-group">
+                <label for="notes">Notes</label>
+                <div>
+                  <textarea id="notes" name="notes" required></textarea>
+                </div>
+              </div>
+              <div class="submit">
+                <input type="submit" value="SAVE">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
   </main>
