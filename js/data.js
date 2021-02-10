@@ -15,6 +15,7 @@ var data = {
 var $profileForm = document.querySelector('#profile-form');
 var $editProfile = document.querySelector('#edit-profile');
 var $profile = document.querySelector('#profile');
+var $defaultImg = document.querySelector('.default-img');
 
 $profileForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -24,6 +25,7 @@ $profileForm.addEventListener('submit', function (event) {
   data.profile.avatarUrl = $profileForm.elements.avatarUrl.value;
   data.profile.bio = $profileForm.elements.bio.value;
   $profileForm.reset();
+  $defaultImg.src = 'images/placeholder-image-square.jpg';
   return viewSwap('profile');
 });
 
@@ -80,6 +82,14 @@ function renderProfile() {
   var $pBio = document.createElement('p');
   $pBio.textContent = data.profile.bio;
   $divViewBio.appendChild($pBio);
+  var $divLink = document.createElement('div');
+  $divLink.setAttribute('class', 'edit-link');
+  $divColumnHalf2.appendChild($divLink);
+  var $link = document.createElement('a');
+  $link.setAttribute('href', '#');
+  $link.setAttribute('data-view', 'edit-profile');
+  $link.textContent = 'edit';
+  $divLink.appendChild($link);
   return $divContainer;
 }
 
@@ -88,11 +98,20 @@ function viewSwap(dataView) {
     $editProfile.className = '';
     $profile.className = 'hidden';
     data.view = 'edit-profile';
+    $profileForm.elements.username.value = data.profile.username;
+    $profileForm.elements.fullName.value = data.profile.fullName;
+    $profileForm.elements.location.value = data.profile.location;
+    $profileForm.elements.avatarUrl.value = data.profile.avatarUrl;
+    $profileForm.elements.bio.value = data.profile.bio;
+    if (data.profile.username !== '') {
+      $defaultImg.src = data.profile.avatarUrl;
+    }
   }
   if (dataView === 'profile') {
     $editProfile.className = 'hidden';
     $profile.className = '';
     data.view = 'profile';
+    $profile.removeChild($profile.childNodes[0]);
     $profile.appendChild(renderProfile());
   }
 }
@@ -102,5 +121,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
     viewSwap('edit-profile');
   } else {
     viewSwap('profile');
+  }
+});
+
+document.addEventListener('click', function (event) {
+  if (event.target && event.target.nodeName === 'A') {
+    if (event.target.textContent === 'edit') {
+      viewSwap('edit-profile');
+    }
+    if ((event.target.textContent === 'profile') && (data.profile.username !== '')) {
+      viewSwap('profile');
+    }
   }
 });

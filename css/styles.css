@@ -8,6 +8,12 @@ header {
   padding: 0.1em;
 }
 
+.navbar {
+  max-width: 900px;
+  margin: 1em auto;
+  padding: 0 1.5rem;
+}
+
 h1 {
   text-transform: uppercase;
 }
@@ -15,9 +21,13 @@ h1 {
 h2 {
   font-weight: normal;
   color: white;
-  max-width: 900px;
-  margin: 1em auto;
-  padding: 0 1.5rem;
+  display: inline;
+  padding-right: 1em;
+}
+
+h3 {
+  display: inline;
+  margin: 1em;
 }
 
 img {
@@ -46,20 +56,16 @@ textarea {
   text-align: right;
 }
 
-input[type="submit"] {
+input[type="submit"],
+a {
   width: 6em;
   font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
   font-weight: bold;
   color: white;
   background-color: rgb(160, 193, 185);
   border: none;
   border-radius: 0.5em;
-  margin: 0;
-}
-
-h3 {
-  display: inline;
-  margin: 1em;
 }
 
 i {
@@ -69,4 +75,13 @@ i {
 
 p {
   margin: 1em;
+}
+
+a {
+  text-decoration: none;
+  padding: 0.7em;
+}
+
+.edit-link {
+  padding-top: 1.5em;
 }
