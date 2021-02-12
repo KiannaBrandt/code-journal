@@ -54,9 +54,9 @@ textarea {
 
 input[type="submit"],
 a {
-  width: 6em;
-  font-family: 'Syne', sans-serif;
-  font-weight: bold;
+  width: 4em;
+  font-weight: normal;
+  text-decoration: none;
   color: white;
   background-color: rgb(160, 193, 185);
   border: none;
@@ -73,11 +73,16 @@ p {
 }
 
 a {
-  text-decoration: none;
-  font-weight: normal;
   padding: 0.7em;
+  text-align: center;
 }
 
 .edit-link {
   padding-top: 1.5em;
+}
+
+.new-entries {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

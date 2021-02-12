@@ -17,6 +17,8 @@ var $editProfile = document.querySelector('#edit-profile');
 var $profile = document.querySelector('#profile');
 var $defaultImg = document.querySelector('.default-img');
 var $entriesLink = document.querySelector('#entries-link');
+var $entries = document.querySelector('#entries');
+var $createEntry = document.querySelector('#create-entry');
 
 $profileForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -98,6 +100,8 @@ function viewSwap(dataView) {
   if (dataView === 'edit-profile') {
     $editProfile.className = '';
     $profile.className = 'hidden';
+    $entries.className = 'hidden';
+    $createEntry.className = 'hidden';
     data.view = 'edit-profile';
     $profileForm.elements.username.value = data.profile.username;
     $profileForm.elements.fullName.value = data.profile.fullName;
@@ -111,17 +115,34 @@ function viewSwap(dataView) {
   if (dataView === 'profile') {
     $editProfile.className = 'hidden';
     $profile.className = '';
+    $entries.className = 'hidden';
+    $createEntry.className = 'hidden';
     $entriesLink.className = '';
     data.view = 'profile';
     $profile.removeChild($profile.childNodes[0]);
     $profile.appendChild(renderProfile());
+  }
+  if (dataView === 'entries') {
+    $editProfile.className = 'hidden';
+    $profile.className = 'hidden';
+    $entries.className = '';
+    $createEntry.className = 'hidden';
+    data.view = 'entries';
+  }
+  if (dataView === 'create-entry') {
+    $editProfile.className = 'hidden';
+    $profile.className = 'hidden';
+    $entries.className = 'hidden';
+    $createEntry.className = '';
+    data.view = 'create-entry';
   }
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
   if (data.profile.username === '') {
     viewSwap('edit-profile');
-  } else {
+  }
+  if (data.profile.username !== '') {
     viewSwap('profile');
   }
 });
@@ -133,6 +154,12 @@ document.addEventListener('click', function (event) {
     }
     if ((event.target.textContent === 'Profile') && (data.profile.username !== '')) {
       viewSwap('profile');
+    }
+    if (event.target.textContent === 'Entries') {
+      viewSwap('entries');
+    }
+    if (event.target.textContent === 'New') {
+      viewSwap('create-entry');
     }
   }
 });

@@ -69,7 +69,7 @@
                 </div>
               </div>
               <div class="submit">
-                <input type="submit" value="SAVE">
+                <input type="submit" value="Save">
               </div>
             </div>
           </div>
@@ -80,12 +80,18 @@
     <div data-view="profile" id="profile">
     </div>
 
-    <div data-view="entries" id="entries">
+    <div data-view="entries" id="entries" class="hidden">
+      <div class="container">
+        <div class="new-entries">
+          <h1>Entries</h1>
+          <a href="#" data-view="create-entry">New</a>
+        </div>
+      </div>
     </div>
 
-    <div data-view="create-entries" id="create-entries">
+    <div data-view="#create-entry" id="create-entry" class="hidden">
       <div class="container">
-        <h1>New Entries</h1>
+        <h1>New Entry</h1>
         <form action="" method="get" id="entries-form">
           <div class="row">
             <div class="column-half">
@@ -115,7 +121,7 @@
                 </div>
               </div>
               <div class="submit">
-                <input type="submit" value="SAVE">
+                <input type="submit" value="Save">
               </div>
             </div>
           </div>
