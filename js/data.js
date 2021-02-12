@@ -19,6 +19,8 @@ var $defaultImg = document.querySelector('.default-img');
 var $entriesLink = document.querySelector('#entries-link');
 var $entries = document.querySelector('#entries');
 var $createEntry = document.querySelector('#create-entry');
+var $entriesForm = document.querySelector('#entries-form');
+var $defaultEntryImg = document.querySelector('.default-entry-img');
 
 $profileForm.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -162,4 +164,20 @@ document.addEventListener('click', function (event) {
       viewSwap('create-entry');
     }
   }
+});
+
+$entriesForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  var entriesObject = {
+    title: '',
+    imageUrl: '',
+    notes: ''
+  };
+  entriesObject.title = $entriesForm.elements.title.value;
+  entriesObject.imageUrl = $entriesForm.elements.photoUrl.value;
+  entriesObject.notes = $entriesForm.elements.notes.value;
+  data.entries = entriesObject;
+  $entriesForm.reset();
+  $defaultEntryImg.src = 'images/placeholder-image-square.jpg';
+  return viewSwap('entries');
 });
