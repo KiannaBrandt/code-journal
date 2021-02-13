@@ -21,11 +21,11 @@
     <div class="navbar">
       <h2>Code Journal</h2>
       <a href="#" data-view="profile">Profile</a>
-      <a href="#" data-view="entries" id="entries-link" class="hidden">Entries</a>
+      <a href="#" data-view="entries" id="entries-link">Entries</a>
     </div>
   </header>
   <main>
-    <div data-view="edit-profile" id="edit-profile">
+    <div data-view="edit-profile" id="edit-profile" class="view">
       <div class="container">
       <h1>Edit Profile</h1>
         <form action="" method="get" id="profile-form">
@@ -77,10 +77,10 @@
       </div>
     </div>
 
-    <div data-view="profile" id="profile">
+    <div data-view="profile" id="profile" class="view">
     </div>
 
-    <div data-view="entries" id="entries" class="hidden">
+    <div data-view="entries" id="entries" class="view hidden">
       <div class="container">
         <div class="new-entries">
           <h1>Entries</h1>
@@ -89,7 +89,7 @@
       </div>
     </div>
 
-    <div data-view="#create-entry" id="create-entry" class="hidden">
+    <div data-view="#create-entry" id="create-entry" class="view hidden">
       <div class="container">
         <h1>New Entry</h1>
         <form action="" method="get" id="entries-form">
