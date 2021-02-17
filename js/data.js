@@ -16,6 +16,7 @@ var $profileForm = document.querySelector('#profile-form');
 var $profile = document.querySelector('#profile');
 var $defaultImg = document.querySelector('.default-img');
 var $entriesLink = document.querySelector('#entries-link');
+var $ol = document.querySelector('ol');
 var $entriesForm = document.querySelector('#entries-form');
 var $defaultEntryImg = document.querySelector('.default-entry-img');
 var $view = document.querySelectorAll('.view');
@@ -133,7 +134,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     viewSwap('edit-profile');
   }
   if (data.profile.username !== '') {
-    viewSwap('profile');
+    viewSwap(data.view);
+  }
+  for (var i = 0; i < data.entries.length; i++) {
+    $ol.appendChild(renderEntry(i));
   }
 });
 
@@ -164,8 +168,32 @@ $entriesForm.addEventListener('submit', function (event) {
   entriesObject.title = $entriesForm.elements.title.value;
   entriesObject.imageUrl = $entriesForm.elements.photoUrl.value;
   entriesObject.notes = $entriesForm.elements.notes.value;
-  data.entries = entriesObject;
+  data.entries.unshift(entriesObject);
   $entriesForm.reset();
   $defaultEntryImg.src = 'images/placeholder-image-square.jpg';
   return viewSwap('entries');
 });
+
+function renderEntry(entry) {
+  var $divRow = document.createElement('div');
+  $divRow.setAttribute('class', 'row');
+  var $divColumnHalf = document.createElement('div');
+  $divColumnHalf.setAttribute('class', 'column-half');
+  $divRow.appendChild($divColumnHalf);
+  var $img = document.createElement('img');
+  $img.setAttribute('src', data.entries[entry].imageUrl);
+  $divColumnHalf.appendChild($img);
+  var $divColumnHalf2 = document.createElement('div');
+  $divColumnHalf2.setAttribute('class', 'column-half');
+  $divRow.appendChild($divColumnHalf2);
+  var $divViewEntry = document.createElement('div');
+  $divViewEntry.setAttribute('class', 'view-entry');
+  $divColumnHalf2.appendChild($divViewEntry);
+  var $h4Title = document.createElement('h4');
+  $h4Title.textContent = data.entries[entry].title;
+  $divViewEntry.appendChild($h4Title);
+  var $pNotes = document.createElement('p');
+  $pNotes.textContent = data.entries[entry].notes;
+  $divViewEntry.appendChild($pNotes);
+  return $divRow;
+}
