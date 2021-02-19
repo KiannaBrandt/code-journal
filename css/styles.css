@@ -46,6 +46,7 @@ textarea {
 
 textarea {
   height: 10em;
+  margin-bottom: 0;
 }
 
 .submit {

@@ -114,7 +114,6 @@ function viewSwap(dataView) {
     $profileForm.elements.bio.value = data.profile.bio;
     if (data.profile.username !== '') {
       $defaultImg.src = data.profile.avatarUrl;
-      $entriesLink.className = '';
     }
     if (data.profile.username === '') {
       $entriesLink.className = 'hidden';
@@ -123,6 +122,9 @@ function viewSwap(dataView) {
   if (dataView === 'profile') {
     $profile.removeChild($profile.childNodes[0]);
     $profile.appendChild(renderProfile());
+  }
+  if (dataView === 'entries') {
+    $ol.prepend(renderEntry(data.entries[0]));
   }
   if (data.profile.username !== '') {
     $entriesLink.className = '';
@@ -135,9 +137,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
   if (data.profile.username !== '') {
     viewSwap(data.view);
-  }
-  for (var i = 0; i < data.entries.length; i++) {
-    $ol.appendChild(renderEntry(i));
   }
 });
 
@@ -181,7 +180,7 @@ function renderEntry(entry) {
   $divColumnHalf.setAttribute('class', 'column-half');
   $divRow.appendChild($divColumnHalf);
   var $img = document.createElement('img');
-  $img.setAttribute('src', data.entries[entry].imageUrl);
+  $img.setAttribute('src', entry.imageUrl);
   $divColumnHalf.appendChild($img);
   var $divColumnHalf2 = document.createElement('div');
   $divColumnHalf2.setAttribute('class', 'column-half');
@@ -190,10 +189,10 @@ function renderEntry(entry) {
   $divViewEntry.setAttribute('class', 'view-entry');
   $divColumnHalf2.appendChild($divViewEntry);
   var $h4Title = document.createElement('h4');
-  $h4Title.textContent = data.entries[entry].title;
+  $h4Title.textContent = entry.title;
   $divViewEntry.appendChild($h4Title);
   var $pNotes = document.createElement('p');
-  $pNotes.textContent = data.entries[entry].notes;
+  $pNotes.textContent = entry.notes;
   $divViewEntry.appendChild($pNotes);
   return $divRow;
 }
