@@ -46,6 +46,7 @@ textarea {
 
 textarea {
   height: 10em;
+  margin-bottom: 0;
 }
 
 .submit {
@@ -68,7 +69,8 @@ i {
   margin: 0.5em;
 }
 
-p {
+p,
+h4 {
   margin: 1em;
 }
 
@@ -85,4 +87,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+ol {
+  padding-inline-start: 0;
 }
